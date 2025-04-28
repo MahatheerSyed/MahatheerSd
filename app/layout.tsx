@@ -44,3 +44,14 @@ export default function RootLayout({
     </html>
   )
 }
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+}
+
+export const themeColor = [
+  { media: "(prefers-color-scheme: light)", color: "white" },
+  { media: "(prefers-color-scheme: dark)", color: "#0f172a" },
+]
+
