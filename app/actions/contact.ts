@@ -18,7 +18,7 @@ export async function sendContactEmail(formData: FormData) {
     // Use the API route which has proper Node.js runtime support
     try {
       // Call our API route which uses force-dynamic to ensure Node.js runtime
-      const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/api/contact`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL || "https://mahatheersd.onrender.com"}/api/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
