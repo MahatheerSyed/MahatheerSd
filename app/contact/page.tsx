@@ -25,9 +25,15 @@ export default function ContactPage() {
   const [isSuccess, setIsSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  async function handleSubmit(formData: FormData) {
+  // Form submission handler
+  async function handleSubmit(event: React.FormEvent) {
+    event.preventDefault(); // Prevent the default form submit action
     setIsSubmitting(true);
     setErrorMessage("");
+
+    // Manually collect form data
+    const form = event.target as HTMLFormElement;
+    const formData = new FormData(form);
 
     try {
       console.log("Submitting contact form...");
@@ -37,6 +43,7 @@ export default function ContactPage() {
       if (result.success) {
         setIsSuccess(true);
 
+        // Handle development mode feedback
         if (result.development) {
           toast({
             title: "Message received (Development Mode)",
@@ -130,7 +137,7 @@ export default function ContactPage() {
               <div>
                 <h4 className="font-medium">LinkedIn</h4>
                 <a
-                  href="www.linkedin.com/in/mahatheersyed"
+                  href="https://www.linkedin.com/in/mahatheersyed"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-primary transition-colors"
@@ -178,7 +185,7 @@ export default function ContactPage() {
             </div>
           ) : (
             <form
-              action={handleSubmit}
+              onSubmit={handleSubmit}
               className="bg-background rounded-lg p-8 card-shadow"
             >
               <div className="space-y-6">
