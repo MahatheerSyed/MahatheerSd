@@ -1,12 +1,12 @@
-"use client";
+"use client"
 
-import { useEffect, useState, Suspense } from "react";
-import { motion } from "framer-motion";
-import { ArrowLeft, Github, ExternalLink } from "lucide-react";
-import Link from "next/link";
-import { Button } from "../../../components/ui/button";
-import Section from "../../../components/section";
-import ImageSlider from "../../../components/image-slider";
+import { useEffect, useState, Suspense } from "react"
+import { motion } from "framer-motion"
+import { ArrowLeft, Github, ExternalLink } from "lucide-react"
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import Section from "@/components/section"
+import ImageSlider from "@/components/image-slider"
 
 const projects = [
   {
@@ -27,10 +27,11 @@ const projects = [
       "A cloud-based intrusion detection system that uses machine learning to identify anomalous network behavior with 97% accuracy. The system provides real-time alerts and detailed analytics.",
     outcome:
       "Successfully deployed to protect cloud infrastructure, reducing false positives by 85% compared to traditional rule-based systems.",
-    images: ["/images/Cloud Ids.jpg"],
+    images: [
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Cloud%20Ids.jpg-y57X0qgLK974AciTA7osFgqMFhg9vl.jpeg",
+    ],
     links: {
-      github:
-        "https://github.com/MahatheerSyed/AI-Driven-Intusion-Detection-Using-Machine-Learning-",
+      github: "https://github.com/MahatheerSyed/AI-Driven-Intusion-Detection-Using-Machine-Learning-",
     },
   },
   {
@@ -62,8 +63,7 @@ const projects = [
     role: "Full Stack Developer",
     duration: "4 months",
     tools: ["Java", "Spring Boot", "React", "MongoDB"],
-    problem:
-      "Providing an online platform for programmers to practice coding, compete, and improve their skills.",
+    problem: "Providing an online platform for programmers to practice coding, compete, and improve their skills.",
     process: [
       "Designed a user-friendly platform for users to practice coding challenges",
       "Developed a real-time competition feature for users to compete in coding challenges",
@@ -85,18 +85,15 @@ const projects = [
     role: "Frontend Developer",
     duration: "1 month",
     tools: ["HTML", "CSS", "JavaScript"],
-    problem:
-      "Creating an intuitive and user-friendly calculator web app to perform basic and scientific operations.",
+    problem: "Creating an intuitive and user-friendly calculator web app to perform basic and scientific operations.",
     process: [
       "Designed the UI for easy access to calculator functionalities",
       "Implemented calculator logic in JavaScript for both basic and scientific operations",
       "Optimized the app for responsiveness and accessibility",
       "Ensured a smooth and interactive user experience",
     ],
-    solution:
-      "A responsive and easy-to-use calculator web app supporting both basic and scientific functions.",
-    outcome:
-      "Successfully launched a web-based tool for performing various mathematical operations.",
+    solution: "A responsive and easy-to-use calculator web app supporting both basic and scientific functions.",
+    outcome: "Successfully launched a web-based tool for performing various mathematical operations.",
     images: ["/images/Calculator.jpg"],
     links: {
       github: "https://github.com/MahatheerSyed/Calculator-Using-REACT",
@@ -108,8 +105,7 @@ const projects = [
     role: "UI/UX Designer & Frontend Developer",
     duration: "1 month",
     tools: ["React", "Next.js", "Tailwind CSS", "Framer Motion"],
-    problem:
-      "Needed a professional platform to showcase projects and skills to potential clients and employers.",
+    problem: "Needed a professional platform to showcase projects and skills to potential clients and employers.",
     process: [
       "Created wireframes and mockups in Figma",
       "Designed responsive layouts for all device sizes",
@@ -118,9 +114,10 @@ const projects = [
     ],
     solution:
       "A modern, responsive portfolio website with smooth animations, dark mode support, and optimized performance.",
-    outcome:
-      "Improved online presence and received positive feedback from clients and recruiters.",
-    images: ["/images/Portfolio.jpg"],
+    outcome: "Improved online presence and received positive feedback from clients and recruiters.",
+    images: [
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Portfolio.jpg-a8bXC9JbtrZBzLKCkUWryirhNBORUW.jpeg",
+    ],
     links: {
       github: "https://github.com/MahatheerSyed/Portfolio-Using-React",
     },
@@ -131,8 +128,7 @@ const projects = [
     role: "Python Developer",
     duration: "2 weeks",
     tools: ["Python", "Pandas", "Openpyxl", "PyQt"],
-    problem:
-      "Manual data processing in Excel was time-consuming and error-prone for a client's financial reporting.",
+    problem: "Manual data processing in Excel was time-consuming and error-prone for a client's financial reporting.",
     process: [
       "Analyzed existing workflow and identified bottlenecks",
       "Designed an automated solution using Python",
@@ -141,9 +137,10 @@ const projects = [
     ],
     solution:
       "A desktop application that automates data extraction, transformation, and reporting in Excel, reducing manual work by 90%.",
-    outcome:
-      "Reduced processing time from 8 hours to 20 minutes and eliminated human errors in financial reporting.",
-    images: ["/images/Excel Automation.jpg"],
+    outcome: "Reduced processing time from 8 hours to 20 minutes and eliminated human errors in financial reporting.",
+    images: [
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Excel%20Automation.jpg-EUzt2Ji1rkcalvHVurvtrVZvIAW5Om.jpeg",
+    ],
     links: {},
   },
   {
@@ -152,8 +149,7 @@ const projects = [
     role: "Full Stack Developer",
     duration: "4 months",
     tools: ["React", "Node.js", "MongoDB", "Stripe API"],
-    problem:
-      "A small business needed an online platform to sell products and manage inventory.",
+    problem: "A small business needed an online platform to sell products and manage inventory.",
     process: [
       "Gathered requirements and created user stories",
       "Designed database schema and API endpoints",
@@ -162,9 +158,10 @@ const projects = [
     ],
     solution:
       "A complete e-commerce platform with product catalog, shopping cart, secure checkout, and admin dashboard for inventory management.",
-    outcome:
-      "Increased sales by 45% in the first quarter after launch and improved inventory management efficiency.",
-    images: ["/images/E-commerce.jpg"],
+    outcome: "Increased sales by 45% in the first quarter after launch and improved inventory management efficiency.",
+    images: [
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/E-commerce.jpg-4Rwx2c1FzB5dWi0JfGIski0OZoJe8a.jpeg",
+    ],
     links: {},
   },
   {
@@ -173,8 +170,7 @@ const projects = [
     role: "Frontend Developer",
     duration: "2 months",
     tools: ["React", "Firebase", "Tailwind CSS"],
-    problem:
-      "A remote team needed a better way to collaborate and track project tasks.",
+    problem: "A remote team needed a better way to collaborate and track project tasks.",
     process: [
       "Conducted user interviews to understand pain points",
       "Created wireframes and user flow diagrams",
@@ -183,9 +179,10 @@ const projects = [
     ],
     solution:
       "A collaborative task management application with real-time updates, team assignments, and progress tracking.",
-    outcome:
-      "Improved team productivity by 30% and reduced miscommunication in project management.",
-    images: ["/images/Task Management.jpg"],
+    outcome: "Improved team productivity by 30% and reduced miscommunication in project management.",
+    images: [
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Task%20Management.jpg-GJQYOnWA9UizBVtYecRPD88aPXkvEq.jpeg",
+    ],
     links: {},
   },
   {
@@ -194,8 +191,7 @@ const projects = [
     role: "Frontend Developer",
     duration: "3 weeks",
     tools: ["JavaScript", "Chart.js", "Weather API"],
-    problem:
-      "Users needed a simple way to visualize weather data for planning activities.",
+    problem: "Users needed a simple way to visualize weather data for planning activities.",
     process: [
       "Researched weather APIs and selected the most reliable one",
       "Designed data visualizations for temperature, precipitation, and wind",
@@ -204,29 +200,28 @@ const projects = [
     ],
     solution:
       "An interactive weather dashboard that displays current conditions and 7-day forecast with visual charts and location search.",
-    outcome:
-      "Positive user feedback for intuitive design and accurate forecasting.",
-    images: ["/images/Wheather DAshboard.jpg"],
+    outcome: "Positive user feedback for intuitive design and accurate forecasting.",
+    images: [
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Wheather%20DAshboard.jpg-CKffknKm7HdooJTvKlSoH6Iy5oZt7T.jpeg",
+    ],
     links: {},
   },
-];
+]
 
-export default function ProjectDetailPage({
-  params,
-}: {
-  params: { id: string };
-}) {
-  const [project, setProject] = useState<any>(null);
-  const [isLoading, setIsLoading] = useState(true);
+export default function ProjectDetailPage({ params }: { params: { id: string } }) {
+  const [project, setProject] = useState<any>(null)
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    const projectId = Number.parseInt(params.id);
-    const foundProject = projects.find((p) => p.id === projectId);
+    const projectId = Number.parseInt(params.id)
+    const foundProject = projects.find((p) => p.id === projectId)
+
     if (foundProject) {
-      setProject(foundProject);
+      setProject(foundProject)
     }
-    setIsLoading(false);
-  }, [params.id]);
+
+    setIsLoading(false)
+  }, [params.id])
 
   if (isLoading) {
     return (
@@ -235,7 +230,7 @@ export default function ProjectDetailPage({
           <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
         </div>
       </Section>
-    );
+    )
   }
 
   if (!project) {
@@ -243,9 +238,7 @@ export default function ProjectDetailPage({
       <Section className="pt-32 md:pt-40">
         <div className="text-center">
           <h1 className="text-3xl font-bold mb-4">Project Not Found</h1>
-          <p className="text-muted-foreground mb-6">
-            The project you're looking for doesn't exist.
-          </p>
+          <p className="text-muted-foreground mb-6">The project you're looking for doesn't exist.</p>
           <Button asChild>
             <Link href="/projects">
               <ArrowLeft className="mr-2 h-4 w-4" /> Back to Projects
@@ -253,16 +246,10 @@ export default function ProjectDetailPage({
           </Button>
         </div>
       </Section>
-    );
+    )
   }
 
-  const RelatedProjects = ({
-    currentId,
-    projects,
-  }: {
-    currentId: number;
-    projects: any[];
-  }) => (
+  const RelatedProjects = ({ currentId, projects }: { currentId: number; projects: any[] }) => (
     <div className="border-t border-border pt-8">
       <h2 className="text-2xl font-bold mb-6">More Projects</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -270,10 +257,7 @@ export default function ProjectDetailPage({
           .filter((p) => p.id !== currentId)
           .slice(0, 3)
           .map((p) => (
-            <div
-              key={p.id}
-              className="group bg-background rounded-lg overflow-hidden card-shadow hover-scale"
-            >
+            <div key={p.id} className="group bg-background rounded-lg overflow-hidden card-shadow hover-scale">
               <div className="aspect-video w-full overflow-hidden">
                 <img
                   src={p.images[0] || "/placeholder.svg"}
@@ -292,7 +276,7 @@ export default function ProjectDetailPage({
           ))}
       </div>
     </div>
-  );
+  )
 
   return (
     <>
@@ -305,15 +289,9 @@ export default function ProjectDetailPage({
           </Button>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
           <div className="mb-8">
-            <h1 className="text-3xl md:text-4xl font-bold mb-4">
-              {project.title}
-            </h1>
+            <h1 className="text-3xl md:text-4xl font-bold mb-4">{project.title}</h1>
             <div className="flex flex-wrap gap-2 mb-4">
               {project.tools.map((tool: string, i: number) => (
                 <span
@@ -326,12 +304,10 @@ export default function ProjectDetailPage({
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
               <div>
-                <span className="text-muted-foreground">Role:</span>{" "}
-                {project.role}
+                <span className="text-muted-foreground">Role:</span> {project.role}
               </div>
               <div>
-                <span className="text-muted-foreground">Duration:</span>{" "}
-                {project.duration}
+                <span className="text-muted-foreground">Duration:</span> {project.duration}
               </div>
             </div>
           </div>
@@ -387,11 +363,52 @@ export default function ProjectDetailPage({
                 </div>
               ) : null}
             </div>
+
+            <div>
+              <div className="bg-secondary p-6 rounded-lg mb-6">
+                <h3 className="text-lg font-bold mb-4">Project Links</h3>
+                <div className="space-y-3">
+                  {project.links.github && (
+                    <a
+                      href={project.links.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      <Github className="mr-2 h-5 w-5" /> GitHub Repository
+                    </a>
+                  )}
+                  {project.links.live && (
+                    <a
+                      href={project.links.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      <ExternalLink className="mr-2 h-5 w-5" /> Live Demo
+                    </a>
+                  )}
+                </div>
+              </div>
+
+              <div className="bg-secondary p-6 rounded-lg">
+                <h3 className="text-lg font-bold mb-4">Technologies Used</h3>
+                <div className="flex flex-wrap gap-2">
+                  {project.tools.map((tool: string, i: number) => (
+                    <span key={i} className="bg-background text-foreground px-3 py-1 rounded-full text-sm font-medium">
+                      {tool}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
 
-          <RelatedProjects currentId={project.id} projects={projects} />
+          <Suspense fallback={<div className="h-40 flex items-center justify-center">Loading related projects...</div>}>
+            <RelatedProjects currentId={project.id} projects={projects} />
+          </Suspense>
         </motion.div>
       </Section>
     </>
-  );
+  )
 }
