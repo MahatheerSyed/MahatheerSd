@@ -1,11 +1,12 @@
-"use client";
+"use client"
 
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import Section from "@/components/section";
-import SectionHeading from "@/components/section-heading";
+import { useState } from "react"
+import { motion } from "framer-motion"
+import { ArrowRight, Plus } from "lucide-react"
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import Section from "@/components/section"
+import SectionHeading from "@/components/section-heading"
 
 const projects = [
   {
@@ -14,23 +15,45 @@ const projects = [
     description:
       "Cloud security intrusion detection system using machine learning algorithms to detect and prevent security threats.",
     tags: ["Python", "ML", "Cloud Security", "Flask"],
-    image: "images/Cloud Ids.jpg",
+    image:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Cloud%20Ids.jpg-y57X0qgLK974AciTA7osFgqMFhg9vl.jpeg",
+  },
+  {
+    id: 2,
+    title: "Voice Globe",
+    description:
+      "Real-time speech and text translation platform to overcome language barriers for international communication.",
+    tags: ["JavaScript", "React", "Flask", "Google Cloud API"],
+    image: "/images/VoiceGlobe.jpg",
+  },
+  {
+    id: 3,
+    title: "Code Champ",
+    description: "Online platform for programmers to practice coding, compete, and improve their skills.",
+    tags: ["Java", "Spring Boot", "React", "MongoDB"],
+    image: "/images/Codechamp.jpg",
+  },
+  {
+    id: 4,
+    title: "Calculator",
+    description: "Intuitive and user-friendly calculator web app to perform basic and scientific operations.",
+    tags: ["HTML", "CSS", "JavaScript"],
+    image: "/images/Calculator.jpg",
   },
   {
     id: 5,
     title: "Portfolio Website",
-    description:
-      "Responsive portfolio website built with React and Tailwind CSS showcasing projects and skills.",
+    description: "Responsive portfolio website built with React and Tailwind CSS showcasing projects and skills.",
     tags: ["React", "Tailwind", "Next.js"],
-    image: "images/Portfolio.jpg",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Portfolio.jpg-a8bXC9JbtrZBzLKCkUWryirhNBORUW.jpeg",
   },
   {
     id: 6,
     title: "Excel Automation Tool",
-    description:
-      "Automated Excel data processing tool that streamlines workflow and increases productivity.",
+    description: "Automated Excel data processing tool that streamlines workflow and increases productivity.",
     tags: ["Python", "Excel", "Automation"],
-    image: "images/Excel Automation.jpg",
+    image:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Excel%20Automation.jpg-EUzt2Ji1rkcalvHVurvtrVZvIAW5Om.jpeg",
   },
   {
     id: 7,
@@ -38,15 +61,15 @@ const projects = [
     description:
       "Full-stack e-commerce platform with user authentication, product management, and payment integration.",
     tags: ["React", "Node.js", "MongoDB", "Stripe"],
-    image: "images/E-commerce.jpg",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/E-commerce.jpg-4Rwx2c1FzB5dWi0JfGIski0OZoJe8a.jpeg",
   },
   {
     id: 8,
     title: "Task Management App",
-    description:
-      "A collaborative task management application with real-time updates and team collaboration features.",
+    description: "A collaborative task management application with real-time updates and team collaboration features.",
     tags: ["React", "Firebase", "Tailwind"],
-    image: "images/Task Management.jpg",
+    image:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Task%20Management.jpg-GJQYOnWA9UizBVtYecRPD88aPXkvEq.jpeg",
   },
   {
     id: 9,
@@ -54,40 +77,18 @@ const projects = [
     description:
       "Interactive weather dashboard that displays current and forecasted weather data from multiple sources.",
     tags: ["JavaScript", "API", "Chart.js"],
-    image: "images/Wheather DAshboard.jpg",
+    image:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Wheather%20DAshboard.jpg-CKffknKm7HdooJTvKlSoH6Iy5oZt7T.jpeg",
   },
-  {
-    id: 2,
-    title: "Voice Globe",
-    description:
-      "Web application that translates both audio and text into multiple languages, enabling real-time communication across languages.",
-    tags: [
-      "React",
-      "Node.js",
-      "Google Cloud Speech-to-Text",
-      "Google Translate API",
-    ],
-    image: "images/VoiceGlobe.jpg",
-  },
-  {
-    id: 3,
-    title: "CodeChamp",
-    description:
-      "Online coding platform that allows users to write, compile, and test code in various programming languages.",
-    tags: ["React", "Node.js", "CodeMirror", "Docker"],
-    image: "images/Codechamp.jpg",
-  },
-  {
-    id: 4,
-    title: "Calculator",
-    description:
-      "Simple and responsive web-based calculator built with JavaScript, offering basic arithmetic and scientific functions.",
-    tags: ["HTML", "CSS", "JavaScript"],
-    image: "images/Calculator.jpg",
-  },
-];
+]
 
 export default function ProjectsPage() {
+  const [visibleProjects, setVisibleProjects] = useState(6)
+
+  const loadMoreProjects = () => {
+    setVisibleProjects((prev) => Math.min(prev + 3, projects.length))
+  }
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -96,7 +97,7 @@ export default function ProjectsPage() {
         staggerChildren: 0.1,
       },
     },
-  };
+  }
 
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
@@ -107,16 +108,12 @@ export default function ProjectsPage() {
         duration: 0.5,
       },
     },
-  };
+  }
 
   return (
     <>
       <Section className="pt-32 md:pt-40" id="projects">
-        <SectionHeading
-          title="My Projects"
-          subtitle="Explore my recent work and case studies"
-          center
-        />
+        <SectionHeading title="My Projects" subtitle="Explore my recent work and case studies" center />
 
         <motion.div
           variants={containerVariants}
@@ -124,7 +121,7 @@ export default function ProjectsPage() {
           animate="visible"
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {projects.map((project) => (
+          {projects.slice(0, visibleProjects).map((project) => (
             <motion.div
               key={project.id}
               variants={itemVariants}
@@ -139,9 +136,7 @@ export default function ProjectsPage() {
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                <p className="text-muted-foreground mb-4">
-                  {project.description}
-                </p>
+                <p className="text-muted-foreground mb-4">{project.description}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag, i) => (
                     <span
@@ -161,7 +156,16 @@ export default function ProjectsPage() {
             </motion.div>
           ))}
         </motion.div>
+
+        {visibleProjects < projects.length && (
+          <div className="mt-12 flex justify-center">
+            <Button onClick={loadMoreProjects} variant="outline" size="lg" className="group">
+              <Plus className="mr-2 h-4 w-4 transition-transform group-hover:rotate-90" />
+              Load More Projects
+            </Button>
+          </div>
+        )}
       </Section>
     </>
-  );
+  )
 }
